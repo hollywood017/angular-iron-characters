@@ -2,7 +2,7 @@
 
 
   <div class = "characters-container">
-    <div *ngFor="let character of characters" class="character-info">
+    <div *ngFor="let character of list" class="character-info">
       <div class="id">Id: <span>{{character.id}}</span></div>
       <div class="name">Name: <span>{{character.name}}</span></div>
       <div class="occupation">Occupation: <span>{{character.occupation}}</span></div>
@@ -13,17 +13,17 @@
 
   <section class="operations">
     <div class="operation">
-      <button id="fetch-all">Fetch all</button>
+      <button id="fetch-all" (click)="fetchAll()">Fetch all</button>
     </div>
     <div class="operation">
       <label for="character-id">Search by ID: </label>
-      <input type="text" name="character-id">
-      <button id="fetch-one">Fetch one</button>
+      <input [(ngModel)]="characterId" id="character-id"type="text" name="character-id">
+      <button id="fetch-one" (click)="fetchOne(characterId)">Fetch one</button>
     </div>
     <div class="operation delete">
       <label for="character-id-delete">Delete by ID: </label>
-      <input type="text" name="character-id-delete">
-      <button id="delete-one">Delete one</button>
+      <input [(ngModel)]="characterIdDelete" id="character-id-delete"type="text" name="character-id-delete">
+      <button id="delete-one" (click)="deleteOne(characterIdDelete)">Delete one</button>
     </div>
 
   </section>
